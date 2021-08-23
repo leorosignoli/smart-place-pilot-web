@@ -41,7 +41,7 @@ function User() {
           <div class="row">
             <div class="col">
               <label>Password</label>
-              <input type="password" name="password" class="form-control" />
+              <input type="password" name="password" class="form-control" id="password"/>
             </div>
             <div class="col">
               <label>Confirm Password</label>
@@ -63,10 +63,8 @@ function User() {
 var check = function() {
   if (document.getElementById('password').value ==
     document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
     document.getElementById('message').innerHTML = 'matching';
   } else {
-    document.getElementById('message').style.color = 'red';
     document.getElementById('message').innerHTML = 'not matching';
   }
 }
