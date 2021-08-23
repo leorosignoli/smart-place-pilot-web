@@ -1,22 +1,35 @@
 import React from 'react';
 import './App.css';
+import './JsonfyData';
+
 
 
 function User() {
 
+  document.addEventListener('submit', (e) => {
+    const formData = new FormData(e.target);
+    const data = Array.from(formData.entries()).reduce((memo, pair) => ({
+      ...memo,
+      [pair[0]]: pair[1],
+    }), {});
+    document.getElementById('output').innerHTML = JSON.stringify(data);
+    e.preventDefault(); // stops from refreshing the page
+  })
+
   return (
+    
     <body>
-        
+
       <div className="wrapper" >
 
-        <form id='userForm'>
+        <form id='myForm'>
           <div class="form-label" id="labelForm">
             <h2>User</h2>
           </div>
 
           <div class="form-group">
             <label>Username</label>
-            <input type="text" name="username" class="form-control">
+            <input type="text" name="username" class="form-control" id="username">
             </input>
           </div>
 
@@ -40,12 +53,14 @@ function User() {
 
           <div class="row">
             <div class="col">
-              <label>Password</label>
-              <input type="password" name="password" class="form-control" id="password"/>
+              <label>password :
+                <input name="password" id="password" type="password" class="form-control" />
+              </label>
             </div>
             <div class="col">
-              <label>Confirm Password</label>
-              <input type="password" name="confirm-password" class="form-control" id="confirm_password" onkeyup='check();'/>
+              <label>confirm password:
+                <input type="password" name="confirm_password" class="form-control" id="confirm_password" />
+              </label>
             </div>
           </div>
 
@@ -55,17 +70,9 @@ function User() {
         </form>
       </div>
 
-      
-
-    </body>   
+      <pre id='output'>Values in Json</pre>
+    </body>
   )
 }
-var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').innerHTML = 'matching';
-  } else {
-    document.getElementById('message').innerHTML = 'not matching';
-  }
-}
+
 export default User;
