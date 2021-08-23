@@ -1,0 +1,15 @@
+#welcome-text{
+    text-align: Left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 150px;
+    margin-left: 80px;
+    white-space: pre-line;
+    
+}
+#text-title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: justify;
+    text-align: center;
+  }

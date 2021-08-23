@@ -1,6 +1,29 @@
+
+
+.wrapper{
+  margin-top: 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 .App {
   text-align: center;
 }
+
+#bttSeparation{
+  justify-content:center;
+  align-items:center;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+
+#labelForm{
+  justify-content:center;
+  text-align: center;
+}
+
+
 
 .App-logo {
   height: 40vmin;
