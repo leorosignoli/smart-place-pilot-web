@@ -1,73 +1,75 @@
 import React from 'react';
 import './App.css';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 
 function User() {
 
+  window.onload = function () {
+    var userForm = document.getElementById('userForm');
+    userForm.addEventListener('submit', function (event) {
+      var formData = new FormData(userForm);
+      var object = {};
+      formData.forEach(function (value, key) {
+        object[key] = value;
+      });
+      var json = JSON.stringify(object);
+      console.log(json);
+      event.preventDefault(); //this func stops the form from submiting
+    })
+  }
+
   return (
-    <body>
-        
-      <div className="wrapper" >
 
-        <form id='userForm'>
-          <div class="form-label" id="labelForm">
-            <h2>User</h2>
-          </div>
 
-          <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control">
-            </input>
-          </div>
+    <Card style={{ width: '32rem' }} id='card-control'>
+      <Card.Body >
+        <Card.Title className="text-center mb-3">
+          <h2>User</h2>
+        </Card.Title>
 
-          <div class="row">
-            <div class="col">
+        <Form id='userForm'>
+
+          <Form.Group className="mb-3">
+            <label> Username </label>
+            <input placeholder="Username123" type="username" name="username" class="form-control" />
+          </Form.Group>
+
+          <Row className="mb-3">
+            <Form.Group as={Col}>
               <label>First Name</label>
               <input type="text" name="first-name" class="form-control" />
-            </div>
-            <div class="col">
+            </Form.Group>
+            <Form.Group as={Col}>
               <label>Last Name</label>
               <input type="text" name="last-name" class="form-control" />
-            </div>
-          </div>
+            </Form.Group>
+          </Row>
 
-          <div class="form-group">
-            <label>
-              E-mail</label>
-            <input name="email" class="form-control" />
 
-          </div>
+          <label>E-mail</label>
+          <input name="email" class="form-control mb-3" />
 
-          <div class="row">
-            <div class="col">
+          <Row className="mb-3">
+            <Col>
               <label>Password</label>
               <input type="password" name="password" class="form-control" />
-            </div>
-            <div class="col">
-              <label>Confirm Password</label>
-              <input type="password" name="confirm-password" class="form-control" id="confirm_password" onkeyup='check();'/>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div id="bttSeparation">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
+          <Button variant="dark" type="submit" >Register</Button>
+        </Form>
 
-      
-
-    </body>   
+      </Card.Body>
+    </Card>
   )
 }
-var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'matching';
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'not matching';
-  }
-}
+
+
 export default User;
