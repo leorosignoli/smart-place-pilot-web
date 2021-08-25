@@ -21,28 +21,28 @@ function Role() {
 
     return (
         <Card style={{ width: '30rem' }} id='card-control'>
-            
+
             <Card.Body>
-                    <Form id="roleForm">
-                        <Card.Title className="text-center mb-3">
-                            <h2>Role</h2>
-                        </Card.Title>
+                <Form id="roleForm">
+                    <Card.Title className="text-center mb-3">
+                        <h2>Role</h2>
+                    </Card.Title>
 
-                        <Form.Group className="mb-3">
-                            <label>Role Name</label>
-                            <input type="name" name="name" placeholder="Role" class="form-control" />
-                        </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Role Name</Form.Label>
+                        <Form.Control type="name" name="name" placeholder="Role" />
+                    </Form.Group>
 
-                        <Form.Group className="mb-4">
-                            <label>Description</label>
-                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your text goes here..."></textarea>
-                        </Form.Group>
+                    <Form.Group className="mb-4">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" placeholder="Your text goes here..." rows={3} />
+                    </Form.Group>
 
-                        <Button variant="dark" type="submit">
-                            Register
-                        </Button>
-                    </Form>
-                
+                    <Button variant="Dark" type="submit">
+                        Register
+                    </Button>
+                </Form>
+
             </Card.Body>
         </Card>
     )

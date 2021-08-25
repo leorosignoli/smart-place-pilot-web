@@ -21,6 +21,7 @@ function Group() {
   }
 
   return (
+
     <Card style={{ width: '22rem' }} id='card-control'>
 
       <Card.Body>
@@ -29,19 +30,17 @@ function Group() {
             <h2>Group</h2>
           </Card.Title>
 
-          <label>
-            Group Name</label>
-          <input name="group" className="form-control mb-4" placeholder="Group"/>
+          <Form.Label>
+            Group Name
+          </Form.Label>
+          <Form.Control name="group" className="mb-4" placeholder="Your Group Name" />
 
-          <Button variant="dark" type="submit" class="btn btn-primary">Register</Button>
+          <Button variant="dark" type="submit" className="btn btn-primary">Register</Button>
 
         </Form>
       </Card.Body>
     </Card>
 
-      </div>
-      <pre id='output'>Values in Json</pre>
-    </body>
   )
 }
 

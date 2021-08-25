@@ -37,29 +37,30 @@ function User() {
         <Form id='userForm'>
 
           <Form.Group className="mb-3">
-            <label> Username </label>
-            <input placeholder="Username123" type="username" name="username" class="form-control" />
+            <Form.Label> Username </Form.Label>
+            <Form.Control placeholder="Username123"name="username"/>
           </Form.Group>
 
           <Row className="mb-3">
             <Form.Group as={Col}>
-              <label>First Name</label>
-              <input type="text" name="first-name" class="form-control" />
+              <Form.Label>First Name</Form.Label>
+              <Form.Control type="text" name="first_name"/>
             </Form.Group>
             <Form.Group as={Col}>
-              <label>Last Name</label>
-              <input type="text" name="last-name" class="form-control" />
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control type="text" name="last_name" />
             </Form.Group>
           </Row>
 
 
-          <label>E-mail</label>
-          <input name="email" class="form-control mb-3" />
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control name="email"/>
 
           <Row className="mb-3">
             <Col>
-              <label>Password</label>
-              <input type="password" name="password" class="form-control" />
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" name="password" />
+              <Form.Text className="text-muted">Password must contain at least 7 characters.</Form.Text>
             </Col>
           </Row>
 
