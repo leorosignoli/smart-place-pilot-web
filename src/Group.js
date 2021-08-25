@@ -1,37 +1,43 @@
 import React from 'react';
 import './App.css';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function Group() {
-  document.addEventListener('submit', (e) => {
-    const formData = new FormData(e.target);
-    const data = Array.from(formData.entries()).reduce((memo, pair) => ({
-      ...memo,
-      [pair[0]]: pair[1],
-    }), {});
-    document.getElementById('output').innerHTML = JSON.stringify(data);
-    e.preventDefault(); // stops from refreshing the page
-  })
+
+  window.onload = function () {
+    var userForm = document.getElementById('groupForm');
+    userForm.addEventListener('submit', function (event) {
+      var formData = new FormData(userForm);
+      var object = {};
+      formData.forEach(function (value, key) {
+        object[key] = value;
+      });
+      var json = JSON.stringify(object);
+      console.log(json);
+      event.preventDefault(); //this func stops the form from submiting
+    })
+  }
+
   return (
-    <body>
-      <div className="wrapper" >
+    <Card style={{ width: '22rem' }} id='card-control'>
 
-        <form method='POST'>
-          <div class="form-label" id="labelForm">
+      <Card.Body>
+        <Form id="groupForm">
+          <Card.Title className="text-center mb-3">
             <h2>Group</h2>
-          </div>
+          </Card.Title>
 
+          <label>
+            Group Name</label>
+          <input name="group" className="form-control mb-4" placeholder="Group"/>
 
-          <div class="form-group">
-            <label>
-              Group Name</label>
-            <input name="group" class="form-control" />
+          <Button variant="dark" type="submit" class="btn btn-primary">Register</Button>
 
-          </div>
-
-          <div id="bttSeparation">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+        </Form>
+      </Card.Body>
+    </Card>
 
       </div>
       <pre id='output'>Values in Json</pre>

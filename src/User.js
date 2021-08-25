@@ -1,78 +1,75 @@
 import React from 'react';
 import './App.css';
-import './JsonfyData';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 
 
 function User() {
 
-  document.addEventListener('submit', (e) => {
-    const formData = new FormData(e.target);
-    const data = Array.from(formData.entries()).reduce((memo, pair) => ({
-      ...memo,
-      [pair[0]]: pair[1],
-    }), {});
-    document.getElementById('output').innerHTML = JSON.stringify(data);
-    e.preventDefault(); // stops from refreshing the page
-  })
+  window.onload = function () {
+    var userForm = document.getElementById('userForm');
+    userForm.addEventListener('submit', function (event) {
+      var formData = new FormData(userForm);
+      var object = {};
+      formData.forEach(function (value, key) {
+        object[key] = value;
+      });
+      var json = JSON.stringify(object);
+      console.log(json);
+      event.preventDefault(); //this func stops the form from submiting
+    })
+  }
 
   return (
-    
-    <body>
 
-      <div className="wrapper" >
 
-        <form id='myForm'>
-          <div class="form-label" id="labelForm">
-            <h2>User</h2>
-          </div>
+    <Card style={{ width: '32rem' }} id='card-control'>
+      <Card.Body >
+        <Card.Title className="text-center mb-3">
+          <h2>User</h2>
+        </Card.Title>
 
-          <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control" id="username">
-            </input>
-          </div>
+        <Form id='userForm'>
 
-          <div class="row">
-            <div class="col">
+          <Form.Group className="mb-3">
+            <label> Username </label>
+            <input placeholder="Username123" type="username" name="username" class="form-control" />
+          </Form.Group>
+
+          <Row className="mb-3">
+            <Form.Group as={Col}>
               <label>First Name</label>
               <input type="text" name="first-name" class="form-control" />
-            </div>
-            <div class="col">
+            </Form.Group>
+            <Form.Group as={Col}>
               <label>Last Name</label>
               <input type="text" name="last-name" class="form-control" />
-            </div>
-          </div>
+            </Form.Group>
+          </Row>
 
-          <div class="form-group">
-            <label>
-              E-mail</label>
-            <input name="email" class="form-control" />
 
-          </div>
+          <label>E-mail</label>
+          <input name="email" class="form-control mb-3" />
 
-          <div class="row">
-            <div class="col">
-              <label>password :
-                <input name="password" id="password" type="password" class="form-control" />
-              </label>
-            </div>
-            <div class="col">
-              <label>confirm password:
-                <input type="password" name="confirm_password" class="form-control" id="confirm_password" />
-              </label>
-            </div>
-          </div>
+          <Row className="mb-3">
+            <Col>
+              <label>Password</label>
+              <input type="password" name="password" class="form-control" />
+            </Col>
+          </Row>
 
-          <div id="bttSeparation">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
+          <Button variant="dark" type="submit" >Register</Button>
+        </Form>
 
-      <pre id='output'>Values in Json</pre>
-    </body>
+      </Card.Body>
+    </Card>
   )
 }
+
 
 export default User;

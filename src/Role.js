@@ -4,38 +4,47 @@ import { Form, Card, Button } from 'react-bootstrap';
 
 
 function Role() {
-    document.addEventListener('submit', (e) => {
-        const formData = new FormData(e.target);
-        const data = Array.from(formData.entries()).reduce((memo, pair) => ({
-            ...memo,
-            [pair[0]]: pair[1],
-        }), {});
-        document.getElementById('output').innerHTML = JSON.stringify(data);
-        e.preventDefault(); // stops from refreshing the page
-    })
-    return (
-        <Card.Body>
-            <div className="wrapper" id="wrapper-role" >
-                <Form >
-                    <div class="form-label" id="labelForm">
-                        <h2>Role</h2>
-                    </div>
 
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Role Name</Form.Label>
-                        <Form.Control type="name" placeholder="Role name" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
-            </div>
-            <pre id='output'>Values in Json</pre>
-        </Card.Body>
+    window.onload = function () {
+        var userForm = document.getElementById('roleForm');
+        userForm.addEventListener('submit', function (event) {
+            var formData = new FormData(userForm);
+            var object = {};
+            formData.forEach(function (value, key) {
+                object[key] = value;
+            });
+            var json = JSON.stringify(object);
+            console.log(json);
+            event.preventDefault(); //this func stops the form from submiting
+        })
+    }
+
+    return (
+        <Card style={{ width: '30rem' }} id='card-control'>
+            
+            <Card.Body>
+                    <Form id="roleForm">
+                        <Card.Title className="text-center mb-3">
+                            <h2>Role</h2>
+                        </Card.Title>
+
+                        <Form.Group className="mb-3">
+                            <label>Role Name</label>
+                            <input type="name" name="name" placeholder="Role" class="form-control" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-4">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your text goes here..."></textarea>
+                        </Form.Group>
+
+                        <Button variant="dark" type="submit">
+                            Register
+                        </Button>
+                    </Form>
+                
+            </Card.Body>
+        </Card>
     )
 }
 
