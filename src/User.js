@@ -6,9 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
-
-
 function User() {
 
   window.onload = function () {
@@ -38,28 +35,28 @@ function User() {
 
           <Form.Group className="mb-3">
             <Form.Label> Username </Form.Label>
-            <Form.Control placeholder="Username123"name="username"/>
+            <Form.Control placeholder="Username123"name="username" required/>
           </Form.Group>
 
           <Row className="mb-3">
             <Form.Group as={Col}>
               <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" name="first_name"/>
+              <Form.Control type="text" name="first_name" required/>
             </Form.Group>
             <Form.Group as={Col}>
               <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" name="last_name" />
+              <Form.Control type="text" name="last_name"  required/>
             </Form.Group>
           </Row>
 
 
           <Form.Label>E-mail</Form.Label>
-          <Form.Control name="email"/>
+          <Form.Control name="email" required/>
 
           <Row className="mb-3">
             <Col>
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name="password" />
+              <Form.Control type="password" name="password"  required/>
               <Form.Text className="text-muted">Password must contain at least 7 characters.</Form.Text>
             </Col>
           </Row>

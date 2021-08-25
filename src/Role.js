@@ -23,6 +23,7 @@ function Role() {
         <Card style={{ width: '30rem' }} id='card-control'>
 
             <Card.Body>
+                
                 <Form id="roleForm">
                     <Card.Title className="text-center mb-3">
                         <h2>Role</h2>
@@ -35,7 +36,7 @@ function Role() {
 
                     <Form.Group className="mb-4">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" placeholder="Your text goes here..." rows={3} />
+                        <Form.Control as="textarea" placeholder="Your text goes here..." name="description"rows={3} />
                     </Form.Group>
 
                     <Button variant="Dark" type="submit">

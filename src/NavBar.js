@@ -3,7 +3,7 @@ import logo from "./img/gwlogo.svg";
 
 function NavBar() {
     return (
-        <Navbar bg="light" variant="light" expand="sm">
+        <Navbar bg="dark" variant="dark" expand="sm">
             <Container>
                 <Navbar.Brand href="/">
                     <img
