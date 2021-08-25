@@ -61,7 +61,7 @@ function User() {
             </Col>
           </Row>
 
-          <Button variant="dark" type="submit" >Register</Button>
+          <Button variant="outline-dark" type="submit" >Register</Button>
         </Form>
 
       </Card.Body>

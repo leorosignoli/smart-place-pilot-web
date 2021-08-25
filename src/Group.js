@@ -35,7 +35,7 @@ function Group() {
           </Form.Label>
           <Form.Control name="group" className="mb-4" placeholder="Your Group Name" />
 
-          <Button variant="dark" type="submit" className="btn btn-primary">Register</Button>
+          <Button variant="outline-dark" type="submit" >Register</Button>
 
         </Form>
       </Card.Body>
