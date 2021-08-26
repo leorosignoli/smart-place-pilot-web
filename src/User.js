@@ -11,7 +11,6 @@ import Col from 'react-bootstrap/Col';
 function User() {
 
   window.onload = function () {
-
     var userForm = document.getElementById('userForm');
     userForm.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -21,13 +20,14 @@ function User() {
         object[key] = value;
       });
       var json = JSON.stringify(object);
-
+      console.log(json);
       fetch('http://localhost:8080/smart-place-pilot-rs/api/user/', {
         headers: {
-          'Accept': 'application/json, text/plain, */*',
-          "Content-Type": "application/json"
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+
         },
-        method:'POST',
+        method: 'POST',
         body: json
       })
         .then(response => console.log('Success:', JSON.stringify(response)))
