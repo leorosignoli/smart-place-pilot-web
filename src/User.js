@@ -23,9 +23,7 @@ function User() {
       console.log(json);
       fetch('http://localhost:8080/smart-place-pilot-rs/api/user/', {
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json',
-
         },
         method: 'POST',
         body: json
