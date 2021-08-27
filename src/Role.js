@@ -8,16 +8,26 @@ function Role() {
     window.onload = function () {
         var userForm = document.getElementById('roleForm');
         userForm.addEventListener('submit', function (event) {
-            var formData = new FormData(userForm);
-            var object = {};
-            formData.forEach(function (value, key) {
-                object[key] = value;
-            });
-            var json = JSON.stringify(object);
-            console.log(json);
-            event.preventDefault(); //this func stops the form from submiting
+          event.preventDefault();
+          var formData = new FormData(userForm);
+          var object = {};
+          formData.forEach(function (value, key) {
+            object[key] = value;
+          });
+          var json = JSON.stringify(object);
+          console.log(json);
+          fetch('http://localhost:8080/smart-place-pilot-rs/api/role/', {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: json
+          })
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
         })
-    }
+    
+      }
 
     return (
         <Card style={{ width: '30rem' }} id='card-control'>

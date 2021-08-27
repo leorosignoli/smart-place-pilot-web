@@ -9,16 +9,24 @@ import Role from './Role';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserGroup from './UserGroup';
+import GroupRole from './GroupRole';
+import UserRole from './UserRole';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/User' exact component={User} />
-        <Route path='/group' component={Group} />
-        <Route path='/role' component={Role} />
+        <Route path = '/' exact component={Home} />
+        <Route path ='/User' exact component={User} />
+        <Route path ='/Group' component={Group} />
+        <Route path ='/Role' component={Role} />
+        <Route path ='/UserGroup' component={UserGroup} />
+        <Route path ='/GroupRole' component={GroupRole} />
+        <Route path ='/UserRole' component={UserRole} />
       </Switch>
     </Router>
 

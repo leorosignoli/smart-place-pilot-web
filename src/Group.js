@@ -9,6 +9,7 @@ function Group() {
   window.onload = function () {
     var userForm = document.getElementById('groupForm');
     userForm.addEventListener('submit', function (event) {
+      event.preventDefault();
       var formData = new FormData(userForm);
       var object = {};
       formData.forEach(function (value, key) {
@@ -16,8 +17,17 @@ function Group() {
       });
       var json = JSON.stringify(object);
       console.log(json);
-      event.preventDefault(); //this func stops the form from submiting
+      fetch('http://localhost:8080/smart-place-pilot-rs/api/group/', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: json
+      })
+        .then(response => console.log('Success:', JSON.stringify(response)))
+        .catch(error => console.error('Error:', error));
     })
+
   }
 
   return (
@@ -33,7 +43,7 @@ function Group() {
           <Form.Label>
             Group Name
           </Form.Label>
-          <Form.Control name="group" className="mb-4" placeholder="Your Group Name" />
+          <Form.Control name="name" className="mb-4" placeholder="Your Group Name" />
 
           <Button variant="outline-dark" type="submit" >Register</Button>
 
