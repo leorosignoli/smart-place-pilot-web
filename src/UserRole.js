@@ -31,6 +31,10 @@ function UserRole() {
             .then(resp => emplist2(resp))
     }, [])
 
+
+    //persist the relationship
+    
+
     return (
 
         <Card style={{ width: '30rem' }} id='card-control'>
@@ -41,7 +45,7 @@ function UserRole() {
                 </Card.Title>
 
                 <Form id= 'UserRole'>
-                    <Form.Group className="mt-3 mb-3">
+                    <Form.Group className=" mb-3">
                         <Form.Label>
                             User
                         </Form.Label>
@@ -50,7 +54,7 @@ function UserRole() {
                             {
                                 result.map(x => {
                                     return (
-                                        <option title={x.id}>{x.username}</option>
+                                        <option title={x.username} value={x.id}>{x.username}</option>
                                     )
                                 })
                             }
@@ -58,7 +62,7 @@ function UserRole() {
                     </Form.Group>
 
 
-                    <Form.Group className="mt-3 mb-3">
+                    <Form.Group className="mb-4">
                         <Form.Label>
                             Role
                         </Form.Label>
@@ -67,18 +71,18 @@ function UserRole() {
                             {
                                 result2.map(x2 => {
                                     return (
-                                        <option title={x2.id}>{x2.name}</option>
+                                        <option title={x2.name} value={x2.id}>{x2.name}</option>
                                     )
                                 })
                             }
                         </Form.Control>
                     </Form.Group>
 
-                    <Button variant="outline-dark" type="submit">
-                        Register
+                    <Button variant="outline-dark" className="mt-3" type="submit">
+                        Register relationship
                     </Button>
-                </Form>
 
+                </Form>
             </Card.Body>
         </Card>
     )
