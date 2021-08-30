@@ -101,7 +101,7 @@ function UserGroup() {
                             {
                                 result.map((items) => {
                                     return (
-                                        <Dropdown.Item name="id" eventKey={items.id} onSelect={Ddlhandle} >{items.username} </Dropdown.Item>
+                                        <Dropdown.Item name="id" eventKey={items.id} value={items.id} onSelect={Ddlhandle} >{items.username} </Dropdown.Item>
                                     )
                                 })
                             }
@@ -116,7 +116,7 @@ function UserGroup() {
                             {
                                 result2.map((items2) => {
                                     return (
-                                        <Dropdown.Item eventKey={items2.id} onSelect={Ddlhandle2}  >{items2.name}</Dropdown.Item>
+                                        <Dropdown.Item eventKey={items2.id} value={items2.id} onSelect={Ddlhandle2}  >{items2.name}</Dropdown.Item>
                                     )
                                 })
                             }
