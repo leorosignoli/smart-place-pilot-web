@@ -31,6 +31,32 @@ function UserGroup() {
             .then(resp => emplist2(resp))
     }, [])
 
+
+    //register users in groups
+    window.onload = function () {
+        var userForm = document.getElementById('UserGroup');
+        userForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          var formData = new FormData(userForm);
+          var object = {};
+          formData.forEach(function (value, key) {
+            object[key] = value;
+          });
+          var json = JSON.stringify(object);
+          console.log(json);
+          fetch('http://localhost:8080/smart-place-pilot-rs/api/user/', {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: json
+          })
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
+        })
+    
+      }
+
     return (
 
         <Card style={{ width: '30rem' }} id='card-control'>
@@ -50,13 +76,12 @@ function UserGroup() {
                             {
                                 result.map(x => {
                                     return (
-                                        <option title={x.id}>{x.username}</option>
+                                        <option title={x.id} value={x.id}>{x.username}</option>
                                     )
                                 })
                             }
                         </Form.Control>
                     </Form.Group>
-
 
                     <Form.Group className="mt-3 mb-3">
                         <Form.Label>
@@ -67,7 +92,7 @@ function UserGroup() {
                             {
                                 result2.map(x2 => {
                                     return (
-                                        <option title={x2.id}>{x2.name}</option>
+                                        <option title={x2.id} value={x2.id}>{x2.name}</option>
                                     )
                                 })
                             }
@@ -75,7 +100,7 @@ function UserGroup() {
                     </Form.Group>
 
                     <Button variant="outline-dark" type="submit">
-                        Register
+                        Register Relationship
                     </Button>
                 </Form>
 
