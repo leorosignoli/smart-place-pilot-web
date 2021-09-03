@@ -27,6 +27,9 @@ import Form from 'react-bootstrap/Form';
     }
 */
 
+// another option for later 
+// https://www.carlrippon.com/react-drop-down-data-binding/
+
 class UserGroup extends React.Component {
 
     constructor(props) {
@@ -37,7 +40,7 @@ class UserGroup extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({ value : event.target.value });
+        this.setState({ value: event.target.value });
     }
 
     handleSubmit(event) {
@@ -45,7 +48,7 @@ class UserGroup extends React.Component {
         var object = {};
 
         object[0] = event.target[1].value;
-        var manualJson= ("{\"userGroups\":\""+event.target[1].value+"\" }");
+        var manualJson = ("{\"userGroups\":\"" + event.target[1].value + "\" }");
         console.log(manualJson);
         fetch(`http://localhost:8080/smart-place-pilot-rs/api/user/${event.target[0].value}`, {
             headers: {
@@ -57,6 +60,24 @@ class UserGroup extends React.Component {
             .then(response => console.log('Success:', JSON.stringify(response)))
             .catch(error => console.error('Error:', error));
 
+    }
+
+
+    componentDidMount() {
+        fetch("http://localhost:8080/smart-place-pilot-rs/api/user/list")
+            .then((response) => {
+                return response.json();
+            })
+            .then(data => {
+                let teamsFromApi = data.map(team => {
+                    return { value: team, display: team }
+                });
+                this.setState({
+                    teams: [{ value: '', display: '(Select your favourite team)' }].concat(teamsFromApi)
+                });
+            }).catch(error => {
+                console.log(error);
+            });
     }
 
     render() {
