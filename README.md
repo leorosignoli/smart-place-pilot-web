@@ -1,5 +1,5 @@
 # How to run
-To run this project you'll need have installed Docker, Npm and react. 
+To run this project you'll need to have installed Docker, Npm and react. 
 
 ## Steps
 1. Open terminal.
@@ -8,13 +8,12 @@ To run this project you'll need have installed Docker, Npm and react.
 		_docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm 
 		sample:dev_
 
-Quando o projeto terminar de ser executado, é informado que _Your Network_ é o endereço: _http://172.17.0.1:3000_ , 
-porém é importante lembrar que este é o endereço interno do container. Toda vez que um container é levantando, 
-o Docker atribui a ele um IP, ele cria uma rede interna padrão, chamada bridge (ponte), 
-pois é a rede que permite a comunicação interna entre os containers. 
-A porta que foi exportada para a máquina local foi a 3001 pelo parâmentro -p. 
-Portanto para acessar a aplicação faz-se da seguinte maneira:
-localhost:3001
+When the project finishes executing, it's informed that _Your Network_ has the adress of: _http://172.17.0.1:3000_, 
+although it's important to remenber that this is the container's internal adress. Every time a container is lifted, 
+Docker gives it an IP, then creates an internal default network, called bridge, because it's the network that allows
+internal comunication between containers. The port that was exported to the local machime was **3001** with the 
+-p parameter. 
+So to access the application you go to: __localhost:3001__
 
 # Getting Started with Create React App
 
