@@ -1,7 +1,7 @@
-#How to run
+# How to run
 To run this project you'll need have installed Docker, Npm and react. 
 
-##Steps
+## Steps
 1. Open terminal.
 2. Type the following lines of code  
 		_docker build -t sample:dev ._
