@@ -5,6 +5,7 @@ To run this project you'll need to have installed Docker, Npm and react.
 1. Open terminal.
 2. Type the following lines of code  
 		_docker build -t sample:dev ._
+
 		_docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm 
 		sample:dev_
 
